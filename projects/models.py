@@ -27,16 +27,30 @@ class Contributor(models.Model):
     role = models.CharField(max_length=30, choices=ROLE_CHOICES, verbose_name="Rôle")
 
     def __str__(self) -> str:
-        return f"{self.user.username} / {self.project.title[:50]}"
+        return f"{self.user.username} / {self.project.title[:50]} / {self.role}"
 
 
 class Issue(models.Model):
 
+    ROLE_CHOICES_PRIORITY = (
+        ("FAIBLE", "Faible"),
+        ("MOYENNE", "Moyenne"),
+        ("ELEVEE", "Elevée"),
+    )
+
+    ROLE_CHOICES_STATUS = (
+        ("AFAIRE", "A faire"),
+        ("ENCOURS", "En cours"),
+        ("TERMINE", "Terminé"),
+    )
+
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
     tag = models.CharField(max_length=30)
-    priority = models.CharField(max_length=30)
-    status = models.CharField(max_length=30)
+    priority = models.CharField(
+        max_length=30, choices=ROLE_CHOICES_PRIORITY, verbose_name="Priorité"
+    )
+    status = models.CharField(max_length=30, choices=ROLE_CHOICES_STATUS)
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE)
     author_user = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,

@@ -5,5 +5,9 @@ from .serializers import ProjectSerializer
 
 
 class ListProject(generics.ListAPIView):
-    queryset = Project.objects.all()
+
     serializer_class = ProjectSerializer
+
+    def get_queryset(self):
+        queryset = Project.objects.filter(contributor__user=self.request.user)
+        return queryset

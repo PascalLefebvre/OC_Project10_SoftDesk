@@ -4,7 +4,7 @@ from .models import Project
 from .serializers import ProjectSerializer
 
 
-class ListProject(generics.ListAPIView):
+class ListProject(generics.ListCreateAPIView):
 
     serializer_class = ProjectSerializer
 

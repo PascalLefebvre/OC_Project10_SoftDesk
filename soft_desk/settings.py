@@ -163,3 +163,5 @@ JWT_AUTH = {
     "JWT_EXPIRATION_DELTA": datetime.timedelta(seconds=3000),
     "JWT_AUTH_HEADER_PREFIX": "Bearer",
 }
+
+SITE_ID = 1

@@ -9,7 +9,7 @@ class Project(models.Model):
     type = models.CharField(max_length=30)
 
     def __str__(self) -> str:
-        return self.title[:30]
+        return f"{self.title[:30]} / {self.id}"
 
 
 class Contributor(models.Model):
@@ -23,7 +23,9 @@ class Contributor(models.Model):
     )
 
     user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    project = models.ForeignKey(to=Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(
+        to=Project, on_delete=models.CASCADE, related_name="contributors"
+    )
     role = models.CharField(max_length=30, choices=ROLE_CHOICES, verbose_name="Rôle")
 
     def __str__(self) -> str:
@@ -52,15 +54,15 @@ class Issue(models.Model):
     )
     status = models.CharField(max_length=30, choices=ROLE_CHOICES_STATUS)
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE)
-    author_user = models.ForeignKey(
+    author = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="issue_author",
     )
-    assignee_user = models.ForeignKey(
+    assignee = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        default=author_user,
+        default=author,
         related_name="issue_assignee",
     )
     created_time = models.DateTimeField(auto_now_add=True)
@@ -72,9 +74,7 @@ class Issue(models.Model):
 class Comment(models.Model):
 
     description = models.CharField(max_length=500)
-    author_user = models.ForeignKey(
-        to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE
-    )
+    author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     issue = models.ForeignKey(to=Issue, on_delete=models.CASCADE)
     created_time = models.DateTimeField(auto_now_add=True)
 

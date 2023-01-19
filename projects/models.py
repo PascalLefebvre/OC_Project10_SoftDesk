@@ -14,22 +14,23 @@ class Project(models.Model):
 
 class Contributor(models.Model):
 
-    CREATOR = "CREATOR"
+    AUTHOR = "AUTHOR"
     CONTRIBUTOR = "CONTRIBUTOR"
 
     ROLE_CHOICES = (
-        (CREATOR, "Créateur"),
+        (AUTHOR, "Auteur"),
         (CONTRIBUTOR, "Collaborateur"),
     )
 
-    user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    project = models.ForeignKey(
-        to=Project, on_delete=models.CASCADE, related_name="contributors"
-    )
+    user_id = models.IntegerField()
+    project_id = models.IntegerField()
     role = models.CharField(max_length=30, choices=ROLE_CHOICES, verbose_name="Rôle")
 
+    class Meta:
+        unique_together = ("user_id", "project_id")
+
     def __str__(self) -> str:
-        return f"{self.user.username} / {self.project.title[:50]} / {self.role}"
+        return f"{self.user_id} / {self.project_id} / {self.role}"
 
 
 class Issue(models.Model):
@@ -53,7 +54,8 @@ class Issue(models.Model):
         max_length=30, choices=ROLE_CHOICES_PRIORITY, verbose_name="Priorité"
     )
     status = models.CharField(max_length=30, choices=ROLE_CHOICES_STATUS)
-    project = models.ForeignKey(to=Project, on_delete=models.CASCADE)
+    # project = models.ForeignKey(to=Project, on_delete=models.CASCADE)
+    project_id = models.IntegerField()
     author = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -80,3 +82,29 @@ class Comment(models.Model):
 
     def __str__(self) -> str:
         return self.description[:50]
+
+
+# class Contributor(models.Model):
+
+#     AUTHOR = "AUTHOR"
+#     CONTRIBUTOR = "CONTRIBUTOR"
+
+#     ROLE_CHOICES = (
+#         (AUTHOR, "Auteur"),
+#         (CONTRIBUTOR, "Collaborateur"),
+#     )
+
+#     user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+#     project = models.ForeignKey(
+#         to=Project, on_delete=models.CASCADE, related_name="contributors"
+#     )
+#     role = models.CharField(max_length=30, choices=ROLE_CHOICES, verbose_name="Rôle")
+
+#     class Meta:
+#         unique_together = (
+#             "user",
+#             "project",
+#         )
+
+#     def __str__(self) -> str:
+#         return f"{self.user.username} / {self.project.title[:50]} / {self.role}"

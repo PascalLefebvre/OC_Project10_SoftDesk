@@ -5,11 +5,10 @@ from .models import Project, Contributor
 
 class ProjectListSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Contributor
+        model = Project
         fields = [
-            "project_id",
-            "user_id",
-            "role",
+            "id",
+            "title",
         ]
 
 
@@ -24,11 +23,11 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
         ]
 
 
-class ContributorSerializer(serializers.ModelSerializer):
+class ContributorListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contributor
         fields = [
-            "user_id",
-            "project_id",
+            "user",
+            "project",
             "role",
         ]

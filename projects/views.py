@@ -1,4 +1,6 @@
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
@@ -8,12 +10,19 @@ from .serializers import (
     ProjectDetailSerializer,
     ContributorListSerializer,
 )
+from .permissions import (
+    IsProjectAuthor,
+    IsProjectContributor,
+)
 
 
 class ProjectList(generics.ListCreateAPIView):
 
     serializer_class = ProjectListSerializer
     detail_serializer_class = ProjectDetailSerializer
+    permission_classes = [
+        IsAuthenticated,
+    ]
 
     def get_queryset(self):
         return Project.objects.filter(contributors__user=self.request.user)
@@ -41,9 +50,11 @@ class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "id"
     lookup_url_kwarg = "project_id"
     serializer_class = ProjectDetailSerializer
+    permission_classes = [
+        IsAuthenticated & (IsProjectContributor | IsProjectAuthor),
+    ]
 
     def get_queryset(self):
-        queryset = []
         auth_user = self.request.user
         project_id = self.kwargs["project_id"]
         if self.request.method == "GET":
@@ -52,13 +63,16 @@ class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
             ).exists():
                 raise Http404
             queryset = Project.objects.filter(id=project_id)
-        elif self.request.method != "PATCH":
+        elif self.request.method in ["PUT", "DELETE"]:
             project = get_object_or_404(Project, id=project_id)
             if not Contributor.objects.filter(
                 user=auth_user, project=project, role="AUTHOR"
             ).exists():
                 raise Http404
             queryset = Project.objects.filter(id=project_id)
+        else:
+            queryset = None
+
         return queryset
 
 
@@ -67,6 +81,9 @@ class ContributorList(generics.ListCreateAPIView):
     lookup_field = "project"
     lookup_url_kwarg = "project_id"
     serializer_class = ContributorListSerializer
+    permission_classes = [
+        IsAuthenticated & (IsProjectContributor | IsProjectAuthor),
+    ]
 
     def get_queryset(self):
         project = self.kwargs["project_id"]
@@ -77,24 +94,26 @@ class ContributorList(generics.ListCreateAPIView):
         return Contributor.objects.filter(project=project)
 
     def get_serializer(self, *args, **kwargs):
-        """
-        Return the serializer instance that should be used for validating and
-        deserializing input, and for serializing output.
-        """
         serializer_class = self.get_serializer_class()
         kwargs.setdefault("context", self.get_serializer_context())
 
-        draft_request_data = self.request.data.copy()
-        draft_request_data["project"] = self.kwargs["project_id"]
-        kwargs["data"] = draft_request_data
+        if self.request.method == "POST":
+            draft_request_data = self.request.data.copy()
+            draft_request_data["project"] = self.kwargs["project_id"]
+            kwargs["data"] = draft_request_data
 
         return serializer_class(*args, **kwargs)
 
 
 class ContributorDelete(generics.DestroyAPIView):
 
+    lookup_field = "project"
     lookup_url_kwargs = ("user_id", "project_id")
     serializer_class = ContributorListSerializer
+    permission_classes = [
+        IsAuthenticated,
+        IsProjectAuthor,
+    ]
 
     def get_queryset(self):
         project = self.kwargs["project_id"]

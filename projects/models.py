@@ -32,7 +32,7 @@ class Contributor(models.Model):
         unique_together = ("user", "project", "role")
 
     def __str__(self) -> str:
-        return f"{self.user.username} / {self.project.title[:50]} / {self.role}"
+        return f"{self.user.username}({self.user.id}) / {self.project.title[:50]}({self.project.id}) / {self.role}"
 
 
 class Issue(models.Model):

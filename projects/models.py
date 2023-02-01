@@ -71,7 +71,7 @@ class Issue(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return self.title[:50]
+        return f"{self.title[:50]} / ProjectId {self.project.id}"
 
 
 class Comment(models.Model):

@@ -14,9 +14,7 @@ class ContributorList(generics.ListCreateAPIView):
     lookup_field = "project"
     lookup_url_kwarg = "project_id"
     serializer_class = ContributorListSerializer
-    permission_classes = [
-        IsAuthenticated & (IsProjectContributor | IsProjectAuthor),
-    ]
+    permission_classes = [IsAuthenticated, IsProjectContributor]
 
     def get_queryset(self):
         project = self.kwargs["project_id"]
@@ -43,10 +41,7 @@ class ContributorDelete(generics.DestroyAPIView):
     lookup_field = "project"
     lookup_url_kwargs = ("user_id", "project_id")
     serializer_class = ContributorListSerializer
-    permission_classes = [
-        IsAuthenticated,
-        IsProjectAuthor,
-    ]
+    permission_classes = [IsAuthenticated, IsProjectAuthor]
 
     def get_queryset(self):
         project = self.kwargs["project_id"]

@@ -14,9 +14,7 @@ class ProjectList(generics.ListCreateAPIView):
 
     serializer_class = ProjectListSerializer
     detail_serializer_class = ProjectDetailSerializer
-    permission_classes = [
-        IsAuthenticated,
-    ]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Project.objects.filter(contributors__user=self.request.user)
@@ -44,9 +42,7 @@ class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "id"
     lookup_url_kwarg = "project_id"
     serializer_class = ProjectDetailSerializer
-    permission_classes = [
-        IsAuthenticated & (IsProjectContributor | IsProjectAuthor),
-    ]
+    permission_classes = [IsAuthenticated & (IsProjectContributor | IsProjectAuthor)]
 
     def get_queryset(self):
         auth_user = self.request.user

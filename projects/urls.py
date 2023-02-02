@@ -3,6 +3,7 @@ from django.urls import path
 from .views_project import ProjectList, ProjectDetail
 from .views_contributor import ContributorList, ContributorDelete
 from .views_issue import IssueList, IssueDetail
+from .views_comment import CommentList, CommentDetail
 
 urlpatterns = [
     path("", ProjectList.as_view(), name="project_list"),
@@ -18,5 +19,15 @@ urlpatterns = [
         "<int:project_id>/issues/<int:issue_id>/",
         IssueDetail.as_view(),
         name="issue_detail",
+    ),
+    path(
+        "<int:project_id>/issues/<int:issue_id>/comments/",
+        CommentList.as_view(),
+        name="comment_list",
+    ),
+    path(
+        "<int:project_id>/issues/<int:issue_id>/comments/<int:comment_id>/",
+        CommentDetail.as_view(),
+        name="comment_detail",
     ),
 ]

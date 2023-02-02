@@ -1,32 +1,27 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.exceptions import ValidationError
 
 from django.http import Http404
-from django.db.models import Q
 
-from .models import Project, Contributor, Issue
-from .serializers import IssueListSerializer, IssueDetailSerializer
-from .permissions import (
-    IsProjectContributor,
-    IsIssueAuthor,
-    IsIssueAssignee,
-)
+from .models import Project, Contributor, Comment
+from .serializers import CommentListSerializer, CommentDetailSerializer
+from .permissions import IsProjectContributor, IsCommentAuthor
 
 
-class IssueList(generics.ListCreateAPIView):
+class CommentList(generics.ListCreateAPIView):
 
-    serializer_class = IssueListSerializer
-    detail_serializer_class = IssueDetailSerializer
+    serializer_class = CommentListSerializer
+    detail_serializer_class = CommentDetailSerializer
     permission_classes = [IsAuthenticated, IsProjectContributor]
 
     def get_queryset(self):
         project = self.kwargs["project_id"]
+        issue = self.kwargs["issue_id"]
         if not Contributor.objects.filter(
             project=project, user=self.request.user
         ).exists():
             raise Http404
-        return Issue.objects.filter(project=project)
+        return Comment.objects.filter(issue=issue)
 
     def get_serializer_class(self):
         if self.request.method == "POST":
@@ -40,52 +35,32 @@ class IssueList(generics.ListCreateAPIView):
         if self.request.method == "POST":
             draft_request_data = self.request.data.copy()
             draft_request_data["author"] = self.request.user.id
-            draft_request_data["project"] = self.kwargs["project_id"]
+            draft_request_data["issue"] = self.kwargs["issue_id"]
             kwargs["data"] = draft_request_data
 
         return serializer_class(*args, **kwargs)
 
-    def create(self, request, *args, **kwargs):
-        project = self.kwargs["project_id"]
-        assignee = request.data["assignee"]
-        if not Contributor.objects.filter(project=project, user=assignee).exists():
-            raise ValidationError(
-                {
-                    "creation denied": "The assignee of the issue must be a contributor of the project."
-                }
-            )
-        return super().create(request, *args, **kwargs)
 
-
-class IssueDetail(generics.RetrieveUpdateDestroyAPIView):
+class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
 
     lookup_field = "id"
-    lookup_url_kwarg = "issue_id"
-    serializer_class = IssueDetailSerializer
-    permission_classes = [
-        IsAuthenticated & (IsProjectContributor | IsIssueAuthor | IsIssueAssignee)
-    ]
+    lookup_url_kwarg = "comment_id"
+    serializer_class = CommentDetailSerializer
+    permission_classes = [IsAuthenticated & (IsProjectContributor | IsCommentAuthor)]
 
     def get_queryset(self):
         auth_user = self.request.user
         project_id = self.kwargs["project_id"]
-        issue_id = self.kwargs["issue_id"]
-        queryset = Issue.objects.filter(id=issue_id)
+        comment_id = self.kwargs["comment_id"]
+        queryset = Comment.objects.filter(id=comment_id)
 
         if self.request.method == "GET":
             if not Project.objects.filter(
                 contributors__user=auth_user, id=project_id
             ).exists():
                 raise Http404
-        elif self.request.method == "PUT":
-            if not Issue.objects.filter(
-                Q(author=auth_user) | Q(assignee=auth_user) & Q(project__id=project_id)
-            ).exists():
-                raise Http404
-        elif self.request.method == "DELETE":
-            if not Issue.objects.filter(
-                author=auth_user, project__id=project_id
-            ).exists():
+        elif self.request.method in ["PUT", "DELETE"]:
+            if not Comment.objects.filter(author=self.request.user).exists():
                 raise Http404
         else:
             queryset = None
@@ -99,7 +74,7 @@ class IssueDetail(generics.RetrieveUpdateDestroyAPIView):
         if self.request.method == "PUT":
             draft_request_data = self.request.data.copy()
             draft_request_data["author"] = self.request.user.id
-            draft_request_data["project"] = self.kwargs["project_id"]
+            draft_request_data["issue"] = self.kwargs["issue_id"]
             kwargs["data"] = draft_request_data
 
         return serializer_class(*args, **kwargs)

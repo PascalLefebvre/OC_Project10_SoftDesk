@@ -1,12 +1,19 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import ValidationError
 
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 
-from .models import Contributor, Issue
+from .models import Project, Contributor, Issue
 from .serializers import IssueListSerializer, IssueDetailSerializer
-from .permissions import IsProjectAuthor, IsProjectContributor
+from .permissions import (
+    IsProjectAuthor,
+    IsProjectContributor,
+    IsIssueAuthor,
+    IsIssueAssignee,
+)
 
 
 class IssueList(generics.ListCreateAPIView):
@@ -42,6 +49,60 @@ class IssueList(generics.ListCreateAPIView):
 
         return serializer_class(*args, **kwargs)
 
+    def create(self, request, *args, **kwargs):
+        project = self.kwargs["project_id"]
+        assignee = request.data["assignee"]
+        if not Contributor.objects.filter(project=project, user=assignee).exists():
+            raise ValidationError(
+                {
+                    "creation denied": "The assignee of the issue must be a contributor of the project."
+                }
+            )
+        return super().create(request, *args, **kwargs)
+
 
 class IssueDetail(generics.RetrieveUpdateDestroyAPIView):
-    pass
+
+    lookup_field = "id"
+    lookup_url_kwarg = "issue_id"
+    serializer_class = IssueDetailSerializer
+    permission_classes = [
+        IsAuthenticated & (IsProjectContributor | IsIssueAuthor | IsIssueAssignee)
+    ]
+
+    def get_queryset(self):
+        auth_user = self.request.user
+        project_id = self.kwargs["project_id"]
+        issue_id = self.kwargs["issue_id"]
+        project = get_object_or_404(Project, id=project_id)
+        queryset = Issue.objects.filter(id=issue_id)
+
+        if self.request.method == "GET":
+            if not Project.objects.filter(
+                contributors__user=auth_user, id=project_id
+            ).exists():
+                raise Http404
+        elif self.request.method == "PUT":
+            if not Issue.objects.filter(
+                Q(author=auth_user) | Q(assignee=auth_user) & Q(project=project)
+            ).exists():
+                raise Http404
+        elif self.request.method == "DELETE":
+            if not Issue.objects.filter(author=auth_user, project=project).exists():
+                raise Http404
+        else:
+            queryset = None
+
+        return queryset
+
+    def get_serializer(self, *args, **kwargs):
+        serializer_class = self.get_serializer_class()
+        kwargs.setdefault("context", self.get_serializer_context())
+
+        if self.request.method == "PUT":
+            draft_request_data = self.request.data.copy()
+            draft_request_data["author"] = self.request.user.id
+            draft_request_data["project"] = self.kwargs["project_id"]
+            kwargs["data"] = draft_request_data
+
+        return serializer_class(*args, **kwargs)

@@ -51,19 +51,18 @@ class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         auth_user = self.request.user
         project_id = self.kwargs["project_id"]
+        project = get_object_or_404(Project, id=project_id)
+        queryset = Project.objects.filter(id=project_id)
         if self.request.method == "GET":
             if not Project.objects.filter(
                 contributors__user=auth_user, id=project_id
             ).exists():
                 raise Http404
-            queryset = Project.objects.filter(id=project_id)
         elif self.request.method in ["PUT", "DELETE"]:
-            project = get_object_or_404(Project, id=project_id)
             if not Contributor.objects.filter(
                 user=auth_user, project=project, role="AUTHOR"
             ).exists():
                 raise Http404
-            queryset = Project.objects.filter(id=project_id)
         else:
             queryset = None
 

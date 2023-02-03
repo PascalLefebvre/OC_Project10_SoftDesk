@@ -14,7 +14,7 @@ class ContributorList(generics.ListCreateAPIView):
     lookup_field = "project"
     lookup_url_kwarg = "project_id"
     serializer_class = ContributorListSerializer
-    permission_classes = [IsAuthenticated, IsProjectContributor]
+    permission_classes = [IsAuthenticated & (IsProjectContributor | IsProjectAuthor)]
 
     def get_queryset(self):
         project = self.kwargs["project_id"]

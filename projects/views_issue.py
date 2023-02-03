@@ -9,6 +9,7 @@ from .models import Project, Contributor, Issue
 from .serializers import IssueListSerializer, IssueDetailSerializer
 from .permissions import (
     IsProjectContributor,
+    IsCreator,
     IsIssueAuthor,
     IsIssueAssignee,
 )
@@ -18,7 +19,7 @@ class IssueList(generics.ListCreateAPIView):
 
     serializer_class = IssueListSerializer
     detail_serializer_class = IssueDetailSerializer
-    permission_classes = [IsAuthenticated, IsProjectContributor]
+    permission_classes = [IsAuthenticated & (IsProjectContributor | IsCreator)]
 
     def get_queryset(self):
         project = self.kwargs["project_id"]

@@ -5,14 +5,14 @@ from django.http import Http404
 
 from .models import Project, Contributor, Comment
 from .serializers import CommentListSerializer, CommentDetailSerializer
-from .permissions import IsProjectContributor, IsCommentAuthor
+from .permissions import IsProjectContributor, IsCreator, IsCommentAuthor
 
 
 class CommentList(generics.ListCreateAPIView):
 
     serializer_class = CommentListSerializer
     detail_serializer_class = CommentDetailSerializer
-    permission_classes = [IsAuthenticated, IsProjectContributor]
+    permission_classes = [IsAuthenticated & (IsProjectContributor | IsCreator)]
 
     def get_queryset(self):
         project = self.kwargs["project_id"]

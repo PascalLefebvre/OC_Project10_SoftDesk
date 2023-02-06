@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # For JWT parameters
 import datetime
@@ -23,7 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-waq^ne#k+m!b!a%x(($*fys&s37%ylxh%w6yt+%q$i1%af683a"
+SECRET_KEY = str(os.getenv("SECRET_KEY"))
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

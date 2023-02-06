@@ -741,6 +741,864 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2023-01-31T13:59:58.889Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "15",
+        "object_repr": "New project 11 / 15",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2023-02-01T13:42:12.375Z",
+        "user": 1,
+        "content_type": 14,
+        "object_id": "4",
+        "object_repr": "Issue4 / ProjectId 1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2023-02-01T14:24:42.852Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "17",
+        "object_repr": "New project / 17",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2023-02-01T14:37:38.478Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "11",
+        "object_repr": "creator / 11",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2023-02-01T14:37:38.480Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "10",
+        "object_repr": "newuser2 / 10",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2023-02-01T14:37:38.482Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "9",
+        "object_repr": "newuser / 9",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2023-02-01T14:37:38.485Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "8",
+        "object_repr": "titi / 8",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2023-02-01T14:43:23.408Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "12",
+        "object_repr": "newuser / 12",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2023-02-01T15:33:37.378Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "13",
+        "object_repr": "newuser / 13",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2023-02-01T15:39:32.576Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "14",
+        "object_repr": "newuser / 14",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2023-02-02T09:47:11.020Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "15",
+        "object_repr": "newuser / 15",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2023-02-02T09:59:20.998Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "16",
+        "object_repr": "newuser / 16",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2023-02-02T10:16:38.239Z",
+        "user": 1,
+        "content_type": 14,
+        "object_id": "13",
+        "object_repr": "New issue / ProjectId 1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2023-02-02T10:16:45.874Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "17",
+        "object_repr": "newuser / 17",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2023-02-02T10:22:38.123Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "18",
+        "object_repr": "newuser / 18",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2023-02-02T10:36:03.293Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "23",
+        "object_repr": "New project / 23",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2023-02-02T10:36:15.489Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "19",
+        "object_repr": "newuser / 19",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2023-02-02T10:40:46.299Z",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "47",
+        "object_repr": "newuser(20) / Project1(1) / CONTRIBUTOR",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2023-02-02T10:58:32.005Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "20",
+        "object_repr": "newuser / 20",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2023-02-02T12:36:42.430Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "21",
+        "object_repr": "newuser / 21",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2023-02-02T12:40:15.832Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "22",
+        "object_repr": "newuser / 22",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2023-02-02T13:11:24.065Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "23",
+        "object_repr": "newuser / 23",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2023-02-02T13:11:31.829Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "24",
+        "object_repr": "New project / 24",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2023-02-02T14:26:08.014Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "Description of comment 1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2023-02-02T14:26:37.837Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "2",
+        "object_repr": "Description of comment 2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2023-02-02T14:26:44.897Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "24",
+        "object_repr": "newuser / 24",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2023-02-02T14:59:07.200Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "25",
+        "object_repr": "newuser / 25",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2023-02-02T15:19:27.167Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "5",
+        "object_repr": "Description of new comment",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2023-02-02T15:19:27.170Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "4",
+        "object_repr": "Description of new comment",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2023-02-02T15:19:35.381Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "26",
+        "object_repr": "newuser / 26",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2023-02-02T15:25:53.652Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "27",
+        "object_repr": "newuser / 27",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2023-02-03T09:06:24.125Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "28",
+        "object_repr": "newuser / 28",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2023-02-03T10:34:34.565Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "29",
+        "object_repr": "newuser / 29",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2023-02-03T10:34:41.909Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "27",
+        "object_repr": "New project / 27",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2023-02-03T10:34:41.912Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "26",
+        "object_repr": "New project / 26",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2023-02-03T10:49:55.287Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "30",
+        "object_repr": "newuser / 30",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2023-02-03T11:08:04.752Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "31",
+        "object_repr": "newuser / 31",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2023-02-03T11:11:58.052Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "32",
+        "object_repr": "newuser / 32",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2023-02-03T13:42:24.147Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "33",
+        "object_repr": "newuser / 33",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2023-02-03T13:42:30.635Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "31",
+        "object_repr": "New project / 31",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2023-02-03T13:42:30.638Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "30",
+        "object_repr": "New project / 30",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2023-02-03T14:35:25.160Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "34",
+        "object_repr": "creator / 34",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 100,
+    "fields": {
+        "action_time": "2023-02-03T14:43:57.206Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "35",
+        "object_repr": "creator / 35",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 101,
+    "fields": {
+        "action_time": "2023-02-06T07:51:46.805Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "37",
+        "object_repr": "newuser / 37",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 102,
+    "fields": {
+        "action_time": "2023-02-06T07:51:46.808Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "36",
+        "object_repr": "creator / 36",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 103,
+    "fields": {
+        "action_time": "2023-02-06T08:04:16.602Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "38",
+        "object_repr": "newuser / 38",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 104,
+    "fields": {
+        "action_time": "2023-02-06T08:04:27.040Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "33",
+        "object_repr": "New project / 33",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 105,
+    "fields": {
+        "action_time": "2023-02-06T08:04:27.043Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "32",
+        "object_repr": "New project / 32",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 106,
+    "fields": {
+        "action_time": "2023-02-06T08:09:41.007Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "39",
+        "object_repr": "newuser / 39",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 107,
+    "fields": {
+        "action_time": "2023-02-06T08:09:47.387Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "34",
+        "object_repr": "New project / 34",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 108,
+    "fields": {
+        "action_time": "2023-02-06T09:02:15.563Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "40",
+        "object_repr": "newuser / 40",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 109,
+    "fields": {
+        "action_time": "2023-02-06T09:02:23.004Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "35",
+        "object_repr": "New project / 35",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 110,
+    "fields": {
+        "action_time": "2023-02-06T10:42:49.786Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "Project1 / 1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 111,
+    "fields": {
+        "action_time": "2023-02-06T10:42:58.597Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "2",
+        "object_repr": "Project2 / 2",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 112,
+    "fields": {
+        "action_time": "2023-02-06T10:43:05.778Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "3",
+        "object_repr": "Project3 / 3",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 113,
+    "fields": {
+        "action_time": "2023-02-06T10:43:12.024Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "4",
+        "object_repr": "Project4 / 4",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 114,
+    "fields": {
+        "action_time": "2023-02-06T10:43:23.978Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "6",
+        "object_repr": "Project6 / 6",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 115,
+    "fields": {
+        "action_time": "2023-02-06T10:43:29.773Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "9",
+        "object_repr": "Project9 / 9",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2023-02-06T13:49:30.658Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "41",
+        "object_repr": "newuser / 41",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2023-02-06T15:12:10.400Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "42",
+        "object_repr": "newuser / 42",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2023-02-06T16:02:52.658Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "43",
+        "object_repr": "newuser / 43",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 119,
+    "fields": {
+        "action_time": "2023-02-06T16:02:57.988Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "36",
+        "object_repr": "New project / 36",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 120,
+    "fields": {
+        "action_time": "2023-02-06T16:08:13.198Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "Description of the comment 1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 121,
+    "fields": {
+        "action_time": "2023-02-06T16:08:19.571Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "2",
+        "object_repr": "Description of the comment 2",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 122,
+    "fields": {
+        "action_time": "2023-02-06T16:13:54.141Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "44",
+        "object_repr": "newuser / 44",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 123,
+    "fields": {
+        "action_time": "2023-02-06T16:14:01.301Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "37",
+        "object_repr": "New project / 37",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -1446,18 +2304,18 @@
 },
 {
     "model": "sessions.session",
-    "pk": "83z7ihzmr4zwn66e0x791nwc32rby438",
+    "pk": "cjb2hsuid1nk8w3t0ilyw8s4dkg51jwo",
     "fields": {
-        "session_data": ".eJxVjEEOwiAQRe_C2hCBQqcu3fcMZIaZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLMur0uxGmh5Qd8B3LrepUy7rMpHdFH7TpsbI8r4f7d5Cx5W8dBB13gDQQeiRh6fspeEueSCBYMmLOkiAgJM8EdgBnu5Aml0AMePX-ABlmOMw:1pKDxw:NCmgbDm8azxcLbBjexMaJKic8b6mCdKW0Fl6dOviy1I",
-        "expire_date": "2023-02-07T07:43:36.703Z"
+        "session_data": ".eJxVjEEOwiAQRe_C2hCBQqcu3fcMZIaZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLMur0uxGmh5Qd8B3LrepUy7rMpHdFH7TpsbI8r4f7d5Cx5W8dBB13gDQQeiRh6fspeEueSCBYMmLOkiAgJM8EdgBnu5Aml0AMePX-ABlmOMw:1pOxFr:neEPHocRxBd7FYVZXJaIj2HpqdFNKDavJ_oDGf0dENk",
+        "expire_date": "2023-02-20T08:53:39.404Z"
     }
 },
 {
     "model": "sessions.session",
-    "pk": "9a2f0xx6ti43uid5xwad68bbvfftn1lz",
+    "pk": "wken3c4kc5crfv63ro62w7svjinx47dz",
     "fields": {
-        "session_data": ".eJxVjMsOwiAQRf-FtSGUNy7d-w1kYAapGkhKuzL-uzbpQrf3nHNfLMK21rgNWuKM7MwkO_1uCfKD2g7wDu3Wee5tXebEd4UfdPBrR3peDvfvoMKo39rZbAs5iUErDUgChEcJQoFVKtNEAYXPsmARDmDyxjivyBoNPmGgxN4f8Ro4Yw:1pMVwA:K-_--NKMcxdIAtsRFducJod_4Fs0xcmtBP04uWW7uv8",
-        "expire_date": "2023-02-13T15:19:14.154Z"
+        "session_data": ".eJxVjEEOwiAQRe_C2hAGi1CX7j0DmWEGqRpISrsy3l2bdKHb_977LxVxXUpcu8xxYnVWVh1-N8L0kLoBvmO9NZ1aXeaJ9KbonXZ9bSzPy-7-HRTs5Vt7JMfgAtmBEwIE75FNSGIB0jDafEKkwHY0XgLwUQyx9yaLDQwpO_X-AO7DOFY:1pP3xY:Hlrne6E3jBYXw1vKUkw_XyzHYk0reXQ6ouvTI_mdG-o",
+        "expire_date": "2023-02-20T16:03:12.095Z"
     }
 },
 {
@@ -1473,7 +2331,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$390000$cJlOu5HrASLjZV00rqk8Cz$VJa+kUP432moBBAIzZWaxo4mThNyQ1+3HrepAtRqdAg=",
-        "last_login": "2023-01-24T07:43:36.700Z",
+        "last_login": "2023-02-06T08:53:39.401Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -1490,8 +2348,8 @@
     "model": "accounts.user",
     "pk": 2,
     "fields": {
-        "password": "pbkdf2_sha256$390000$F5U8YnlQDyBREVU29XG8tV$YbBXprRZWWPtzyka2DONB8jDuQgSlAfE/WUWwBqaSJc=",
-        "last_login": "2023-01-30T15:19:14.128Z",
+        "password": "pbkdf2_sha256$390000$xldbdKjJdNNyIIK8tco6u0$zcrQfQXt/JmItG5YIzs263YOPFnWzy9H0ImJebe6o7E=",
+        "last_login": "2023-02-06T16:03:12.092Z",
         "is_superuser": false,
         "username": "barbara",
         "first_name": "",
@@ -1508,8 +2366,8 @@
     "model": "accounts.user",
     "pk": 3,
     "fields": {
-        "password": "pbkdf2_sha256$390000$hZTRq5pK88rZlIStOlT0iZ$c1j7WWiHiHdaP7cWIzaiSVExXftBVaVOUYEIP8eMJdg=",
-        "last_login": "2023-01-24T14:07:56.353Z",
+        "password": "pbkdf2_sha256$390000$kdQ7Dq4qIxALdQpMVYLb9P$nUeYjwyOhYoIbBmXdR2fHpOmERImGZ/PyCvmgv9rQC8=",
+        "last_login": "2023-02-02T10:58:51.099Z",
         "is_superuser": false,
         "username": "john",
         "first_name": "",
@@ -1526,7 +2384,7 @@
     "model": "accounts.user",
     "pk": 4,
     "fields": {
-        "password": "pbkdf2_sha256$390000$q4vHFU4qpQxkziNQW8kajM$bctQOasjLkcNWi4u3JVQB6icmuQkjZ436Ee+6eWhF8c=",
+        "password": "pbkdf2_sha256$390000$rqQAQyIuhme7JVRAdGp979$And8AKlJOO/UFqRWgxVfaViN4VF0b459Pksgt09AZm0=",
         "last_login": null,
         "is_superuser": false,
         "username": "peter",
@@ -1544,7 +2402,7 @@
     "model": "accounts.user",
     "pk": 5,
     "fields": {
-        "password": "pbkdf2_sha256$390000$zbAC4Szcy8jCeD5PqziFMF$iESzZCVnYeARmICM6oUFytOi7D8wimjaWU+QkfOFC+c=",
+        "password": "pbkdf2_sha256$390000$enl6eqIO1EEgxMx9pgonjU$jLzX6DB/+7TIocef7oS6eJ9Fp81IvBpy5LfCw3JgRhY=",
         "last_login": null,
         "is_superuser": false,
         "username": "arnold",
@@ -1562,8 +2420,8 @@
     "model": "accounts.user",
     "pk": 6,
     "fields": {
-        "password": "pbkdf2_sha256$390000$CXapPviw0DzFnGDV9IhvXE$Kpd0plBv6RkkFP60rkLGX8J1yLOPRT1O0/XA+uSjSyA=",
-        "last_login": null,
+        "password": "pbkdf2_sha256$390000$VHS2UrcG1r1ffuHsMLRStE$PFfLZFaSp1Jd9i4oJ7IcrsfzidW4KJzCLGMmhN3EnH4=",
+        "last_login": "2023-02-06T15:12:20.874Z",
         "is_superuser": false,
         "username": "willy",
         "first_name": "",
@@ -1577,65 +2435,11 @@
     }
 },
 {
-    "model": "accounts.user",
-    "pk": 8,
-    "fields": {
-        "password": "pbkdf2_sha256$390000$U5Exdd4OgDBtjy5Jdd6YWC$zDePHTG63w1AVh87xpvcn/9ZQUlhtwwnWxBU3CfRbUs=",
-        "last_login": "2023-01-26T10:27:19.041Z",
-        "is_superuser": false,
-        "username": "titi",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2023-01-24T16:13:14.577Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "accounts.user",
-    "pk": 9,
-    "fields": {
-        "password": "pbkdf2_sha256$390000$u4qClvNxPfY2SDdSM1nFGB$Uak+KjSXQu323oDehAWtksPRsVzLPNYzO/EamBz5bxw=",
-        "last_login": "2023-01-25T14:26:03.634Z",
-        "is_superuser": false,
-        "username": "newuser",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2023-01-25T14:26:03.523Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "accounts.user",
-    "pk": 10,
-    "fields": {
-        "password": "pbkdf2_sha256$390000$4f61mHkkfmTzlAsbOJfykh$yVR//fEG7J6Q7/77JGN8xxAz/8+BDgSAnhXsX5pNQso=",
-        "last_login": "2023-01-25T14:28:59.809Z",
-        "is_superuser": false,
-        "username": "newuser2",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2023-01-25T14:28:59.692Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
     "model": "projects.project",
     "pk": 1,
     "fields": {
         "title": "Project1",
-        "description": "Description of project1",
+        "description": "Description of the project1",
         "type": "front-end"
     }
 },
@@ -1644,7 +2448,7 @@
     "pk": 2,
     "fields": {
         "title": "Project2",
-        "description": "Description of project2",
+        "description": "Description of the project2",
         "type": "back-end"
     }
 },
@@ -1653,7 +2457,7 @@
     "pk": 3,
     "fields": {
         "title": "Project3",
-        "description": "Description of project3",
+        "description": "Description of the project3",
         "type": "ios"
     }
 },
@@ -1662,7 +2466,7 @@
     "pk": 4,
     "fields": {
         "title": "Project4",
-        "description": "Description of project4",
+        "description": "Description of the project4",
         "type": "android"
     }
 },
@@ -1671,7 +2475,7 @@
     "pk": 6,
     "fields": {
         "title": "Project6",
-        "description": "Description of project6",
+        "description": "Description of the project6",
         "type": "android"
     }
 },
@@ -1680,7 +2484,7 @@
     "pk": 9,
     "fields": {
         "title": "Project9",
-        "description": "Description of project9",
+        "description": "Description of the project9",
         "type": "front-end"
     }
 },
@@ -1793,6 +2597,15 @@
     }
 },
 {
+    "model": "projects.contributor",
+    "pk": 56,
+    "fields": {
+        "user": 3,
+        "project": 1,
+        "role": "CONTRIBUTOR"
+    }
+},
+{
     "model": "projects.issue",
     "pk": 1,
     "fields": {
@@ -1835,6 +2648,41 @@
         "author": 2,
         "assignee": 2,
         "created_time": "2023-01-23T09:04:56.172Z"
+    }
+},
+{
+    "model": "projects.issue",
+    "pk": 4,
+    "fields": {
+        "title": "Issue4",
+        "description": "Description of issue4",
+        "tag": "amélioration",
+        "priority": "ELEVEE",
+        "status": "ENCOURS",
+        "project": 1,
+        "author": 6,
+        "assignee": 6,
+        "created_time": "2023-02-01T13:42:12.374Z"
+    }
+},
+{
+    "model": "projects.comment",
+    "pk": 1,
+    "fields": {
+        "description": "Description of the comment 1",
+        "author": 2,
+        "issue": 3,
+        "created_time": "2023-02-02T14:26:08.013Z"
+    }
+},
+{
+    "model": "projects.comment",
+    "pk": 2,
+    "fields": {
+        "description": "Description of the comment 2",
+        "author": 6,
+        "issue": 4,
+        "created_time": "2023-02-02T14:26:37.837Z"
     }
 }
 ]

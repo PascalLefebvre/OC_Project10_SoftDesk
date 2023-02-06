@@ -18,7 +18,7 @@ class IsProjectAuthor(permissions.BasePermission):
 
     message = "You're not allowed because you're not the author of the project."
 
-    def is_project_author(self, request, view):
+    def has_permission(self, request, view):
         project_id = view.kwargs["project_id"]
         if Project.objects.filter(
             id=project_id,
@@ -28,11 +28,8 @@ class IsProjectAuthor(permissions.BasePermission):
             return True
         return False
 
-    def has_permission(self, request, view):
-        return self.is_project_author(request, view)
-
     def has_object_permission(self, request, view, obj):
-        return self.is_project_author(request, view)
+        return True
 
 
 class IsIssueAuthor(IsAuthor):

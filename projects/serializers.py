@@ -23,7 +23,7 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
         ]
 
 
-class ContributorListSerializer(serializers.ModelSerializer):
+class ContributorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contributor
         fields = [

@@ -5,7 +5,7 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404
 
 from .models import Contributor
-from .serializers import ContributorListSerializer
+from .serializers import ContributorSerializer
 from .permissions import IsProjectAuthor, IsProjectContributor
 
 
@@ -13,7 +13,7 @@ class ContributorList(generics.ListCreateAPIView):
 
     lookup_field = "project"
     lookup_url_kwarg = "project_id"
-    serializer_class = ContributorListSerializer
+    serializer_class = ContributorSerializer
     permission_classes = [IsAuthenticated & (IsProjectContributor | IsProjectAuthor)]
 
     def get_queryset(self):
@@ -40,7 +40,7 @@ class ContributorDelete(generics.DestroyAPIView):
 
     lookup_field = "project"
     lookup_url_kwargs = ("user_id", "project_id")
-    serializer_class = ContributorListSerializer
+    serializer_class = ContributorSerializer
     permission_classes = [IsAuthenticated, IsProjectAuthor]
 
     def get_queryset(self):

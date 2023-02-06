@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from .models import Project, Contributor
+from projects.models import Project, Contributor
 
 User = get_user_model()
 
@@ -13,7 +13,7 @@ class TestProjectList(APITestCase):
     fixtures = ["fixtures/db_dump.json"]
     project_list_url = reverse("project_list")
     auth_username = "barbara"
-    auth_password = "sfpl3011"
+    auth_password = "secret1234"
 
     def setUp(self):
         post_data = {
@@ -29,7 +29,7 @@ class TestProjectList(APITestCase):
         response = self.client.get(self.project_list_url)
         self.assertEquals(response.status_code, 401)
 
-    def test_project_list(self):
+    def test_list_projects(self):
         nb_projects = Project.objects.filter(
             contributors__user__username=self.auth_username
         ).count()
@@ -41,6 +41,7 @@ class TestProjectList(APITestCase):
         nb_contributions_before_creation = Contributor.objects.filter(
             user__username=self.auth_username
         ).count()
+
         post_data = {
             "title": "Test project",
             "description": "Test description",
@@ -55,6 +56,7 @@ class TestProjectList(APITestCase):
         self.assertEqual(response.data["description"], post_data["description"])
         self.assertEqual(response.data["type"], post_data["type"])
 
+        # Verify the update of the contributor table.
         nb_contributions_after_creation = Contributor.objects.filter(
             user__username=self.auth_username
         ).count()
@@ -66,8 +68,9 @@ class TestProjectList(APITestCase):
 class TestProjectDetail(APITestCase):
     @classmethod
     def setUpTestData(cls):
+        cls.password = "secret1234"
         cls.project_creator = User.objects.create_user(
-            username="creator", password="sfpl3011"
+            username="creator", password=cls.password
         )
         cls.project = Project.objects.create(
             title="Test project", description="Test description", type="back-end"
@@ -81,8 +84,8 @@ class TestProjectDetail(APITestCase):
 
     def setUp(self):
         post_data = {
-            "username": "creator",
-            "password": "sfpl3011",
+            "username": self.project_creator.username,
+            "password": self.password,
         }
         response = self.client.post("/login/", data=post_data, format="json")
         access_token = response.data["access_token"]

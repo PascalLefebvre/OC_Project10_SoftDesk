@@ -32,6 +32,7 @@ class CommentList(generics.ListCreateAPIView):
         serializer_class = self.get_serializer_class()
         kwargs.setdefault("context", self.get_serializer_context())
 
+        # Update the kwargs dictionary with the necessary data to create the comment.
         if self.request.method == "POST":
             draft_request_data = self.request.data.copy()
             draft_request_data["author"] = self.request.user.id

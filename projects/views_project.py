@@ -27,6 +27,7 @@ class ProjectList(generics.ListCreateAPIView):
     def create(self, request, *args, **kwargs):
         response = super().create(request, *args, **kwargs)
 
+        # Create the contributor table row in the same time than the project one.
         project_id = response.data.get("id")
         contributor = Contributor()
         contributor.user = request.user

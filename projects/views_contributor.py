@@ -28,6 +28,8 @@ class ContributorList(generics.ListCreateAPIView):
         serializer_class = self.get_serializer_class()
         kwargs.setdefault("context", self.get_serializer_context())
 
+        # Update the kwargs dictionary with the necessary data to create the contributor table row.
+        # Note : 'request.data' is a Django QueryDict which is immutable.
         if self.request.method == "POST":
             draft_request_data = self.request.data.copy()
             draft_request_data["project"] = self.kwargs["project_id"]
@@ -39,6 +41,7 @@ class ContributorList(generics.ListCreateAPIView):
 class ContributorDelete(generics.DestroyAPIView):
 
     lookup_field = "project"
+    # Need two values to retrieve the contributor table row to delete.
     lookup_url_kwargs = ("user_id", "project_id")
     serializer_class = ContributorSerializer
     permission_classes = [IsAuthenticated, IsProjectAuthor]

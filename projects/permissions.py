@@ -49,22 +49,22 @@ class IsProjectContributor(permissions.BasePermission):
 
     message = "You're not allowed because you're not a contributor of the project."
 
+    def is_project_contributor(self, request, view):
+        project_id = view.kwargs["project_id"]
+        if Project.objects.filter(
+            id=project_id, contributors__user=request.user
+        ).exists():
+            return True
+        return False
+
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
-            project_id = view.kwargs["project_id"]
-            if Project.objects.filter(
-                id=project_id,
-                contributors__user=request.user,
-            ).exists():
-                return True
+            return self.is_project_contributor(request, view)
         return False
 
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
-            if Project.objects.filter(
-                id=obj.id, contributors__user=request.user
-            ).exists():
-                return True
+            return self.is_project_contributor(request, view)
         return False
 
 

@@ -166,7 +166,7 @@ REST_USE_JWT = True
 JWT_AUTH = {
     "JWT_VERIFY": True,
     "JWT_VERIFY_EXPIRATION": True,
-    "JWT_EXPIRATION_DELTA": datetime.timedelta(minutes=30),
+    "JWT_EXPIRATION_DELTA": datetime.timedelta(seconds=300),
     "JWT_AUTH_HEADER_PREFIX": "Bearer",
 }
 
